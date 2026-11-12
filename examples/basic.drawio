@@ -1,0 +1,12 @@
+<mxfile host="app.diagrams.net"><diagram id="example" name="Flusso di esempio"><mxGraphModel><root>
+  <mxCell id="0"/><mxCell id="1" parent="0"/>
+  <mxCell id="start" parent="1" vertex="1" value="Inizio" style="ellipse;fillColor=#e6f3ef;fontSize=18;"><mxGeometry x="240" y="30" width="180" height="70" as="geometry"/></mxCell>
+  <mxCell id="task" parent="1" vertex="1" value="Prepara la richiesta" style="rounded=0;fillColor=#f0f5fb;fontSize=18;"><mxGeometry x="220" y="160" width="220" height="90" as="geometry"/></mxCell>
+  <mxCell id="decision" parent="1" vertex="1" value="Approvata?" style="rhombus;fillColor=#fff4d9;fontSize=18;"><mxGeometry x="220" y="310" width="220" height="120" as="geometry"/></mxCell>
+  <mxCell id="accepted" parent="1" vertex="1" value="Avvia il lavoro" style="rounded=0;fillColor=#e6f3ef;fontSize=18;"><mxGeometry x="370" y="510" width="210" height="90" as="geometry"/></mxCell>
+  <mxCell id="revision" parent="1" vertex="1" value="Integra la richiesta" style="rounded=0;fillColor=#f0f5fb;fontSize=18;"><mxGeometry x="40" y="510" width="210" height="90" as="geometry"/></mxCell>
+  <mxCell id="a" parent="1" edge="1" source="start" target="task" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+  <mxCell id="b" parent="1" edge="1" source="task" target="decision" style="edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.5;entryY=0;"><mxGeometry relative="1" as="geometry"/></mxCell>
+  <mxCell id="c" parent="1" edge="1" source="decision" target="accepted" value="Sì" style="edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;entryX=0.5;entryY=0;fontSize=16;"><mxGeometry x="0.1" y="-12" relative="1" as="geometry"/></mxCell>
+  <mxCell id="d" parent="1" edge="1" source="decision" target="revision" value="No" style="edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;entryX=0.5;entryY=0;fontSize=16;"><mxGeometry x="0.1" y="12" relative="1" as="geometry"/></mxCell>
+</root></mxGraphModel></diagram></mxfile>

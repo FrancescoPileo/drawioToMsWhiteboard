@@ -1,0 +1,14 @@
+{
+  "name": "drawio-to-ms-whiteboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Convert draw.io diagrams into editable Microsoft Whiteboard shapes using HTML clipboard data.",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/core.test.mjs",
+    "test:browser": "node tests/browser.mjs"
+  },
+  "engines": { "node": ">=22" },
+  "devDependencies": { "playwright": "^1.56.1" }
+}

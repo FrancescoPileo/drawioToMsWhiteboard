@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Converti un file draw.io in forme modificabili per Microsoft Whiteboard. Conversione locale, anteprima e copia negli appunti.">
+  <title>drawioToMsWhiteboard</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <header class="header"><a class="brand" href="./"><span class="mark" aria-hidden="true">◇</span> drawioToMsWhiteboard</a><span class="badge">v0.1 · sperimentale</span></header>
+  <main>
+    <section class="intro"><p class="eyebrow">DA UN DIAGRAMMA A UNA LAVAGNA</p><h1>I tuoi blocchi,<br>ancora modificabili.</h1><p class="lead">Carica un file draw.io e porta rettangoli, rombi ed ellissi in Microsoft Whiteboard.</p><p class="privacy">Il file viene elaborato nel tuo browser e non viene caricato su un server.</p></section>
+    <div class="workspace">
+      <aside class="controls" aria-label="Conversione">
+        <section class="card"><h2><span class="step">1</span> Scegli il diagramma</h2>
+          <div class="drop" id="drop"><label for="file">Apri un file .drawio o .xml<span>Oppure trascinalo qui · massimo 10 MB</span></label><input id="file" type="file" accept=".drawio,.xml"></div>
+          <button class="link-button" id="demo">Prova con il diagramma di esempio →</button>
+          <p id="filename" class="muted"></p>
+          <div id="page-control" hidden><label for="page">Pagina da convertire</label><select id="page"></select></div>
+        </section>
+        <section class="card"><h2><span class="step">2</span> Scegli cosa trasferire</h2>
+          <label class="option"><input type="checkbox" id="arrows" disabled><span>Includi le frecce <small class="beta">BETA</small><small>Ricostruite con segmenti modificabili. Non seguiranno i blocchi quando li sposti.</small></span></label>
+          <p class="muted">Senza questa opzione puoi aggiungere i connettori direttamente in Whiteboard.</p>
+        </section>
+        <section class="card"><h2><span class="step">3</span> Porta tutto in Whiteboard</h2>
+          <button class="primary" id="copy" disabled>Copia forme e testi</button>
+          <p class="muted">Apri una lavagna vuota in Whiteboard, clicca sulla lavagna e premi <kbd>Ctrl</kbd> + <kbd>V</kbd>.</p>
+          <button class="secondary" id="script" disabled>Scarica script per Whiteboard</button>
+          <details><summary>Come si usa lo script?</summary><p>Apri il file .txt, copia tutto il codice e incollalo nella Console (F12) di Whiteboard web. Eseguilo: comparirà un pannello con i pulsanti di copia. Scegli una modalità e poi premi Ctrl+V sulla lavagna.</p></details>
+          <p id="status" role="status" aria-live="polite">Carica un diagramma per iniziare.</p>
+        </section>
+      </aside>
+      <section class="preview-card" aria-label="Anteprima del diagramma">
+        <div class="preview-header"><div><h2>Anteprima</h2><p id="stats" class="muted">Il tuo diagramma apparirà qui</p></div><button id="reset" class="small-button" disabled>Adatta</button></div>
+        <div class="viewport" id="viewport"><div class="empty" id="empty"><span aria-hidden="true">▭ → ◇ → ◯</span><h3>Un nuovo spazio per le tue idee.</h3><p>Carica il diagramma o prova l’esempio.</p></div><svg id="preview" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Anteprima approssimata del diagramma convertito" hidden></svg></div>
+        <div class="zoom"><label for="zoom">Zoom</label><input type="range" id="zoom" min="25" max="250" value="100" disabled><output id="zoom-value" for="zoom">100%</output></div>
+        <section class="report" id="report" hidden><h3>Note sulla conversione</h3><ul id="warnings"></ul></section>
+      </section>
+    </div>
+    <section class="compatibility"><h2>Compatibilità della prima versione</h2><div class="table-wrap"><table><thead><tr><th>Elemento draw.io</th><th>Risultato in Whiteboard</th></tr></thead><tbody>
+      <tr><td>Rettangoli, rombi, ellissi</td><td>Forme native modificabili, con testo e dimensioni</td></tr>
+      <tr><td>Testi ed etichette</td><td>Testo modificabile dentro forme; formattazione semplificata</td></tr>
+      <tr><td>Gruppi</td><td>Coordinate mantenute, oggetti separati</td></tr>
+      <tr><td>Frecce · beta</td><td>Segmenti e punte composti da forme, senza agganci automatici</td></tr>
+      <tr><td>Icone, immagini e altre forme</td><td>Escluse e segnalate nel riepilogo</td></tr>
+    </tbody></table></div><p>Metodo basato su un formato appunti interno e non documentato: aggiornamenti di Whiteboard possono cambiarne il comportamento. L’anteprima è indicativa; verifica l’incolla su una lavagna vuota.</p></section>
+  </main>
+  <footer>Progetto indipendente · non affiliato a Microsoft o draw.io · <a href="./README.md">Documentazione</a></footer>
+</body>
+</html>
